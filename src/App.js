@@ -1,27 +1,15 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
+import React from "react";
 import Header from "./components/Header.js";
+import CharacterList from "./components/CharacterList.js"
 
 
-const App = () => {
-  const [page, setPage] = useState(1);
-  const [char, setChar] = useState([]);
-
-  useEffect(() => {
-    axios
-    .get(`https://cors-anywhere.herokuapp.com/https://rickandmortyapi.com/api/character/?page=${page}`)
-    .then(response => console.log(response.data.results));
-}, [page]);
-
-    return (
+export default function App() {
+  return (
         <div>
           <main>
-      <Header />
-    </main>
-            <button>Previous</button>
-            <button>Next</button>
+            <Header />
+          </main>
         </div>
         );  
 }
 
-export default App;
