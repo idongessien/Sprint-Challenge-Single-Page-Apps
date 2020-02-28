@@ -7,17 +7,17 @@ export default function CharacterList() {
 
   useEffect(() => {
     axios
-    .get("https://rickandmortyapi.com/api/character/")
+    .get("https://rickandmortyapi.com/api/character/?page=1")
     .then(response => setChar(response.data.results))
     .catch(error => {
       console.log("The data was not returned", error);
-}, []);
+});
+  }, []);
 
   return (
     <section className="character-list">
         <div>
-          <h2>TODO: `array.map()` over your state here!</h2>
-          { props.char.map((chars, index) => (
+          { char.map((chars, index) => (
             <CharacterCard
               name = { chars.name }
               status = { chars.status }
@@ -29,4 +29,4 @@ export default function CharacterList() {
         </div>
     </section>
   );
-})}
+}
