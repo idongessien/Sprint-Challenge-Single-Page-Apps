@@ -1,22 +1,15 @@
 import React from "react";
-import { Link, Switch, Route } from "react-router-dom";
+import styled from "styled-components";
 
-import WelcomePage from "./WelcomePage.js";
-import CharacterList from "./CharacterList";
+const Heading = styled.h1`
+  margin: 0;
+  font-size: 1.5rem;
+`;
 
 export default function Header() {
   return (
-    <header className="ui centered">
-      <h1 className="ui center">Rick &amp; Morty Fan Page</h1>
-      <div>
-        <Link exact to="/">Home</Link>
-        <Link to="/character-list">Characters</Link>
-      </div>
-
-      <Switch>
-        <Route exact path="/" component={ WelcomePage } />
-        <Route exact path="/character-list" component={ CharacterList } />
-      </Switch>
+    <header>
+      <Heading>Rick &amp; Morty Fan Page</Heading>
     </header>
   );
 }

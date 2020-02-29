@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import "../index.css";
+
 import CharacterCard from "./CharacterCard.js";
 import SearchForm from "./SearchForm";
 
@@ -16,9 +18,9 @@ export default function CharacterList() {
   }, []);
 
   return (
-    <section className="character-list">
-        <div>
-          <SearchForm />
+    <div className="char-container">
+      <SearchForm />
+        <div className="character-list">
           { char.map((chars, index) => (
             <CharacterCard
               name = { chars.name }
@@ -29,6 +31,6 @@ export default function CharacterList() {
               />
           ))}
         </div>
-    </section>
+    </div>
   );
 }
