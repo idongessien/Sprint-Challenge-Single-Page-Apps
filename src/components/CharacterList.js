@@ -7,21 +7,30 @@ import SearchForm from "./SearchForm";
 
 export default function CharacterList() {
   const [char, setChar] = useState([]);
+  const [searchWord, setSearchWord] = useState("")
 
   useEffect(() => {
     axios
-    .get("https://rickandmortyapi.com/api/character/")
-    .then(response => setChar(response.data.results))
-    .catch(error => {
-      console.log("The data was not returned", error);
-});
+      .get("https://rickandmortyapi.com/api/character/")
+      .then(response => setChar(response.data.results))
+      .catch(error => {
+        console.log("The data was not returned", error);
+      });
+
+      
   }, []);
+
+  const handleChange = e => {
+    setSearchWord(e.target.value)
+  };
+
+  const narrow = i => i.name.toLowerCase().includes(searchWord.toLowerCase())
 
   return (
     <div className="char-container">
-      <SearchForm />
+      <SearchForm handleChange={handleChange} />
         <div className="character-list">
-          { char.map((chars, index) => (
+          { char.filter(narrow).map((chars, index) => (
             <CharacterCard
               name = { chars.name }
               status = { chars.status }

@@ -22,7 +22,7 @@ export default function App() {
             <Header />
 
             <div>
-              <Link className="links" exact to="/">Home</Link>
+              <Link className="links" exact="true" to="/">Home</Link>
               <Link className="links" to="/character-list">Characters</Link>
             </div>
 
