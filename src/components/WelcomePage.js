@@ -1,16 +1,27 @@
 import React from "react";
+import "../index.css";
+import styled from "styled-components";
+
+const Overlay = styled.div`
+  background: rgba(256, 256, 256, 0.7);
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`
+
+const Title = styled.h1`
+  font-size: 5rem;
+  letter-spacing: -7px;
+  filter: drop-shadow(5px 5px 5px gray);
+`
 
 export default function WelcomePage() {
   return (
-    <section className="welcome-page">
-      <header>
-        <h1>Welcome to the ultimate fan site!</h1>
-        <img
-          className="main-img"
-          src="https://rickandmortyapi.com/api/character/avatar/1.jpeg"
-          alt="rick"
-        />
-      </header>
-    </section>
+      <div className="welcome-page">
+        <Overlay>
+        <Title>Welcome to the ultimate fan site!</Title>
+        </Overlay>
+      </div>
   );
 }
